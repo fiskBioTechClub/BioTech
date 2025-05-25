@@ -10,7 +10,16 @@ import OurProjects from './pages/OurProjects';
 function App () {
   return (
     <div>
-      <Home />
+      <BrowserRouter>
+      <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/ourprojects" element={<OurProjects />} />
+          <Route path="/ourteam" element={<OurTeam />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

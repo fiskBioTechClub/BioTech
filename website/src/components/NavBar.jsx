@@ -1,18 +1,19 @@
 import React from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-
-import Home from '../pages/Home';
-import Events from '../pages/Events';
-import Opportunities from '../pages/Opportunities';
-import OurProjects from '../pages/OurProjects';
-import OurTeam from '../pages/OurTeam';
-
+import { Link } from 'react-router-dom';
 
 const NavBar  = () => {
     return (
-        <div>
-            <h2>This is the navbar</h2>
-        </div>
+        <nav>
+            <h2>Fisk BioTech CLub</h2>
+            <ul>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/events'>Events</Link></li>
+                <li><Link to='/opportunities'>Opportunities</Link></li>
+                <li><Link to='/ourprojects'>Our Projects</Link></li>
+                <li><Link to='/ourteam'>Our Team</Link></li>
+
+            </ul>
+        </nav>
     );
 };
 export default NavBar;

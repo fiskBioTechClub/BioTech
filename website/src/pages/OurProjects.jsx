@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 const OurProjects = () => {
     return (
         <div>
-            <h2>This is the Our Projects page.</h2>
+            <h2>Projects</h2>
         </div>
     );
 }

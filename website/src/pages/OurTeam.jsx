@@ -1,9 +1,10 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const OurTeam = () => {
     return (
         <div>
-            <h2>This is the our team page.</h2>
+            <h2>Team</h2>
         </div>
         
     );

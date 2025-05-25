@@ -1,9 +1,10 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Opportunities = () => {
     return (
         <div>
-            <h2> This is the opportunities page.</h2>
+            <h2>Opportunities</h2>
         </div>
     );
 }

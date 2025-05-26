@@ -1,0 +1,26 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiskBioTechClub/website.git"
+  },
+  "author": "Amshu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fiskBioTechClub/website/issues"
+  },
+  "homepage": "https://github.com/fiskBioTechClub/website#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.1",
+    "multer": "^2.0.0"
+  }
+}

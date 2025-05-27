@@ -4,12 +4,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const isAdmin = true;
+
+
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [form, setForm] = useState({
     name: '',
     date: '',
-    description: ''
+    description: '',
+    image: ''
   });
 
   useEffect(() => {
@@ -27,6 +31,23 @@ const Events = () => {
   const handleChange = e => {
     setForm({ ...form, [e.target.name]:e.target.value});
   }
+
+  const handleImageUpload = async (file) => {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const res = await axios.post('http://localhost:5050/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      setForm({ ...form, image: res.data.imageUrl });
+    } catch (err) {
+      console.error('Image upload failed:', err);
+    }
+  };
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -50,13 +71,16 @@ const Events = () => {
             <h3>{event.name}</h3>
             <p>{event.date}</p>
             <p>{event.description}</p>
+            {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
           </div>
         ))
       )}
 
-      <hr />
-      <h3>Add New Event</h3>
-      <form onSubmit={handleSubmit}>
+      {isAdmin && (
+      <>
+        <hr />
+        <h3>Add New Event</h3>
+        <form onSubmit={handleSubmit}>
         <input
             type = "text"
             name = "name"
@@ -66,7 +90,7 @@ const Events = () => {
             required
         /><br/><br/>
         <input
-            type = "text"
+            type = "date"
             name = "date"
             placeholder='Event date'
             value={form.date}
@@ -81,8 +105,16 @@ const Events = () => {
             onChange={handleChange}
             required
         /><br/><br/>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => handleImageUpload(e.target.files[0])}
+        /><br /><br />
+
         <button type='submit'>Add Event</button>
       </form>
+      </>
+      )}
     </div>
   );
 };

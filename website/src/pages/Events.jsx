@@ -23,7 +23,7 @@ const Events = () => {
   }, []);
 
   const fetchEvents = () => {
-    axios.get('http://localhost:5050/events')
+    axios.get('https://biotech-backend-l58o.onrender.com/events')
       .then(res => {
         setEvents(res.data);
       })
@@ -39,7 +39,7 @@ const Events = () => {
     formData.append('image', file);
 
     try {
-      const res = await axios.post('http://localhost:5050/upload', formData, {
+      const res = await axios.post('https://biotech-backend-l58o.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -53,7 +53,7 @@ const Events = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://localhost:5050/events', form)
+    axios.post('https://biotech-backend-l58o.onrender.com/events', form)
     .then(() => {
         setForm({ name: '', date: '', description: ''});
         fetchEvents();
@@ -70,7 +70,7 @@ const Events = () => {
             <h3>{event.name}</h3>
             <p>{event.date}</p>
             <p>{event.description}</p>
-            {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
+            {event.image && (<img src={`https://biotech-backend-l58o.onrender.com${event.image}`} alt={event.name} width="200" />)}
           </div>
         ))}
       </div>
@@ -83,7 +83,7 @@ const Events = () => {
               <h3>{event.name}</h3>
               <p>{event.date}</p>
               <p>{event.description}</p>
-              {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
+              {event.image && (<img src={`https://biotech-backend-l58o.onrender.com${event.image}`} alt={event.name} width="200" />)}
             </div>
           ))}
        </div>

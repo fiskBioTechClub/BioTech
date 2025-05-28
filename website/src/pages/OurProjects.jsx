@@ -22,7 +22,7 @@ const Projects = () => {
   }, []);
 
   const fetchProjects = () => {
-    axios.get('http://localhost:5050/projects')
+    axios.get('https://biotech-backend-l58o.onrender.com/projects')
       .then(res => {
         setProject(res.data);
       })
@@ -38,7 +38,7 @@ const Projects = () => {
     formData.append('image', file);
 
     try {
-      const res = await axios.post('http://localhost:5050/upload', formData, {
+      const res = await axios.post('https://biotech-backend-l58o.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -52,7 +52,7 @@ const Projects = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://localhost:5050/projects', form)
+    axios.post('https://biotech-backend-l58o.onrender.com/projects', form)
     .then(() => {
         setForm({ name: '', link: '', description: '', image:''});
         fetchProjects();
@@ -73,7 +73,7 @@ const Projects = () => {
                 <h3>{project.name}</h3>
                 <p>{project.link}</p>
                 <p>{project.description}</p>
-                {project.image && (<img src={`http://localhost:5050${project.image}`} alt={project.name} width="200" />)}
+                {project.image && (<img src={`https://biotech-backend-l58o.onrender.com${project.image}`} alt={project.name} width="200" />)}
               </div>
             ))}
         </div>

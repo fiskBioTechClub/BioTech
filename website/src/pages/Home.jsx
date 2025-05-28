@@ -18,7 +18,7 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5050/interests', form)
+    axios.post('https://biotech-backend-l58o.onrender.com/interests', form)
       .then(() => {
         alert('Thank you for your interest!');
         setForm({ name: '', email: '', level: '', message: '' });

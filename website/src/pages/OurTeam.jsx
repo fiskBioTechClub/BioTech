@@ -21,7 +21,7 @@ const Teams = () => {
   }, []);
 
   const fetchTeams = () => {
-    axios.get('http://localhost:5050/teams')
+    axios.get('https://biotech-backend-l58o.onrender.com/teams')
       .then(res => {
         setTeams(res.data);
       })
@@ -37,7 +37,7 @@ const Teams = () => {
     formData.append('image', file);
 
     try {
-      const res = await axios.post('http://localhost:5050/upload', formData, {
+      const res = await axios.post('https://biotech-backend-l58o.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -51,7 +51,7 @@ const Teams = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://localhost:5050/teams', form)
+    axios.post('https://biotech-backend-l58o.onrender.com/teams', form)
     .then(() => {
         setForm({ name: '', position: '', description: '', image:''});
         fetchTeams();
@@ -72,7 +72,7 @@ const Teams = () => {
               <h3>{team.name}</h3>
               <p>{team.position}</p>
               <p>{team.description}</p>
-              {team.image && (<img src={`http://localhost:5050${team.image}`} alt={team.name} width="200" />)}
+              {team.image && (<img src={`https://biotech-backend-l58o.onrender.com${team.image}`} alt={team.name} width="200" />)}
             </div>
           ))}
         </div>

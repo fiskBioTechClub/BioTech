@@ -22,7 +22,7 @@ const Opportunities = () => {
   }, []);
 
   const fetchOpportunities = () => {
-    axios.get('http://localhost:5050/opportunities')
+    axios.get('https://biotech-backend-l58o.onrender.com/opportunities')
       .then(res => {
         setOpportunity(res.data);
       })
@@ -38,7 +38,7 @@ const Opportunities = () => {
     formData.append('image', file);
 
     try {
-      const res = await axios.post('http://localhost:5050/upload', formData, {
+      const res = await axios.post('https://biotech-backend-l58o.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -52,7 +52,7 @@ const Opportunities = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://localhost:5050/opportunities', form)
+    axios.post('https://biotech-backend-l58o.onrender.com/opportunities', form)
     .then(() => {
         setForm({ name: '', link: '', description: '', image:''});
         fetchOpportunities();
@@ -73,7 +73,7 @@ const Opportunities = () => {
               <h3>{opportunity.name}</h3>
               <p>{opportunity.link}</p>
               <p>{opportunity.description}</p>
-              {opportunity.image && (<img src={`http://localhost:5050${opportunity.image}`} alt={opportunity.name} width="200" />)}
+              {opportunity.image && (<img src={`https://biotech-backend-l58o.onrender.com${opportunity.image}`} alt={opportunity.name} width="200" />)}
             </div>
           ))}
         </div>

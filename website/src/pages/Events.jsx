@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import dayjs from 'dayjs'; 
+
 
 const isAdmin = true;
 
@@ -62,19 +64,25 @@ const Events = () => {
   return (
     <div>
       <h2>Upcoming Events</h2>
-
-      {events.length === 0 ? (
-        <p>No events yet.</p>
-      ) : (
-        events.map((event, index) => (
+      {events.filter(event => dayjs(event.date).isAfter(dayjs())).map((event, index) => (
           <div key={index}>
             <h3>{event.name}</h3>
             <p>{event.date}</p>
             <p>{event.description}</p>
             {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
           </div>
-        ))
-      )}
+      ))}
+
+      <h2>Past Events</h2>
+      {events.filter(event => dayjs(event.date).isBefore(dayjs())).map((event, index) => (
+          <div key={index}>
+            <h3>{event.name}</h3>
+            <p>{event.date}</p>
+            <p>{event.description}</p>
+            {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
+          </div>
+      ))}
+
 
       {isAdmin && (
       <>

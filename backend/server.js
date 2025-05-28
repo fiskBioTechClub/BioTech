@@ -13,6 +13,7 @@ const uploadRoute = require('./routes/upload');
 const teamsRoute = require('./routes/teams');
 const projectsRoute = require('./routes/projects');
 const opportunitiesRoute = require('./routes/opportunities');
+const interestsRoute = require('./routes/interests');
 
 
 // instance of express app
@@ -30,6 +31,7 @@ app.use('/upload', uploadRoute);
 app.use('/teams', teamsRoute);
 app.use('/projects', projectsRoute);
 app.use('/opportunities', opportunitiesRoute);
+app.use('/interests', interestsRoute);
 
 
 

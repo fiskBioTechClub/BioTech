@@ -64,24 +64,30 @@ const Events = () => {
   return (
     <div>
       <h2>Upcoming Events</h2>
-      {events.filter(event => dayjs(event.date).isAfter(dayjs())).map((event, index) => (
+      <div className='card-container'>
+        {events.filter(event => dayjs(event.date).isAfter(dayjs())).map((event, index) => (
           <div key={index}>
             <h3>{event.name}</h3>
             <p>{event.date}</p>
             <p>{event.description}</p>
             {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
           </div>
-      ))}
+        ))}
+      </div>
+      
 
       <h2>Past Events</h2>
-      {events.filter(event => dayjs(event.date).isBefore(dayjs())).map((event, index) => (
-          <div key={index}>
-            <h3>{event.name}</h3>
-            <p>{event.date}</p>
-            <p>{event.description}</p>
-            {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
-          </div>
-      ))}
+       <div className='card-container'>
+          {events.filter(event => dayjs(event.date).isBefore(dayjs())).map((event, index) => (
+            <div key={index}>
+              <h3>{event.name}</h3>
+              <p>{event.date}</p>
+              <p>{event.description}</p>
+              {event.image && (<img src={`http://localhost:5050${event.image}`} alt={event.name} width="200" />)}
+            </div>
+          ))}
+       </div>
+      
 
 
       {isAdmin && (

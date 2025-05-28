@@ -67,14 +67,16 @@ const Opportunities = () => {
       {opportunity.length === 0 ? (
         <p>No Opportunities</p>
       ) : (
-        opportunity.map((opportunity, index) => (
-          <div key={index}>
-            <h3>{opportunity.name}</h3>
-            <p>{opportunity.link}</p>
-            <p>{opportunity.description}</p>
-            {opportunity.image && (<img src={`http://localhost:5050${opportunity.image}`} alt={opportunity.name} width="200" />)}
-          </div>
-        ))
+        <div className='card-container'>
+          {opportunity.map((opportunity, index) => (
+            <div key={index}>
+              <h3>{opportunity.name}</h3>
+              <p>{opportunity.link}</p>
+              <p>{opportunity.description}</p>
+              {opportunity.image && (<img src={`http://localhost:5050${opportunity.image}`} alt={opportunity.name} width="200" />)}
+            </div>
+          ))}
+        </div>
       )}
 
       {isAdmin && (

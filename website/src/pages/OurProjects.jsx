@@ -67,14 +67,17 @@ const Projects = () => {
       {project.length === 0 ? (
         <p>No projects</p>
       ) : (
-        project.map((project, index) => (
-          <div key={index}>
-            <h3>{project.name}</h3>
-            <p>{project.link}</p>
-            <p>{project.description}</p>
-            {project.image && (<img src={`http://localhost:5050${project.image}`} alt={project.name} width="200" />)}
-          </div>
-        ))
+        <div className='card-container'>
+            {project.map((project, index) => (
+              <div key={index}>
+                <h3>{project.name}</h3>
+                <p>{project.link}</p>
+                <p>{project.description}</p>
+                {project.image && (<img src={`http://localhost:5050${project.image}`} alt={project.name} width="200" />)}
+              </div>
+            ))}
+        </div>
+        
       )}
 
       {isAdmin && (

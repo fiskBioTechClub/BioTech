@@ -28,7 +28,20 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Home</h2>
+      <div>
+        <h2>Our Mission</h2>
+        <p>
+            At Fisk BioTech Club, our mission is to foster curiosity and collaboration across biology, technology, and innovation. We empower students through workshops, research, and real-world applications.
+        </p>
+
+        <h2>Our Goals</h2>
+        <ul>
+            <p>Promote interdisciplinary research and learning</p>
+            <p>Provide hands-on experience in biotech tools</p>
+            <p>Connect students with research, internships, and industry</p>
+            <p>Encourage leadership and innovation in science</p>
+        </ul>
+        </div>
       <h3>Interested in joining? Fill the form below:</h3>
       <form onSubmit={handleSubmit}>
         <input 

@@ -66,14 +66,16 @@ const Teams = () => {
       {teams.length === 0 ? (
         <p>No members</p>
       ) : (
-        teams.map((team, index) => (
-          <div key={index}>
-            <h3>{team.name}</h3>
-            <p>{team.position}</p>
-            <p>{team.description}</p>
-            {team.image && (<img src={`http://localhost:5050${team.image}`} alt={team.name} width="200" />)}
-          </div>
-        ))
+        <div className='card-container'>
+          {teams.map((team, index) => (
+            <div key={index}>
+              <h3>{team.name}</h3>
+              <p>{team.position}</p>
+              <p>{team.description}</p>
+              {team.image && (<img src={`http://localhost:5050${team.image}`} alt={team.name} width="200" />)}
+            </div>
+          ))}
+        </div>
       )}
 
       {isAdmin && (
